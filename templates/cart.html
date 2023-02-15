@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="hero-wrap hero-bread" style="background-image: url({% static 'images/bg_1.jpg' %});">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Cart</span></p>
+            <h1 class="mb-0 bread">My Cart</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+	
+
+	 	{% if not cart_len %}
+
+    <section class="ftco-section ftco-cart">
+			<div class="container">
+
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="cart-list">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>&nbsp;</th>
+						        <th>&nbsp;</th>
+						        <th>Product name</th>
+						        <th>Price</th>
+								<th>Discount</th>
+						        <th>Quantity</th>
+						        <th>Total</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+								{% for item in cart_items %}
+  									{% comment %} {% with z=x*y %}
+									  {% endwith %} {% endcomment %}
+
+
+								<tr class="text-center">
+						        <td class="product-remove"><a href="{% url 'delete_from_cart' item.id %}"><span class="ion-ios-close"></span></a></td>
+						        
+						        <td class="image-prod"><div class="img" style="background-image:url({{item.product.image.url}});"></div></td>
+						        
+						        <td class="product-name">
+						        	<h3>{{item.product.name}}</h3>
+						        	<p>{{item.product.description}}</p>
+						        </td>
+						       
+						        <td class="price">{{item.product.price}}</td>
+						       
+								<td class="price">{{item.product.discount}}</td>
+								
+						        <td class="total">{{item.quantity}}</td>
+					          
+						        
+							 	<td class="total">$</td>
+						      </tr><!-- END TR-->
+									
+        						{% endfor %}
+
+						    
+						    </tbody>
+						  </table>
+					  </div>
+    			</div>
+    		</div>
+    		<div class="row justify-content-end">
+    			
+    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate" style = " margin-right:280px">
+    				<div class="cart-total mb-3">
+    					<h3>Cart Totals</h3>
+    					<p class="d-flex">
+    						<span>Total Discount</span>
+    						<span>${{dis}}</span>
+    					</p>
+    					<p class="d-flex">
+    						<span>Delivery</span>
+    						<span>$10.00</span>
+    					</p>
+    					<hr>
+    					<p class="d-flex total-price">
+    						<span>Total_Amount</span>
+    						<span>${{amount}}</span>
+    					</p>
+    				</div>
+    				<p><a href="/checkout" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+    			</div>
+    		</div>
+			</div>
+		</section>
+{% else %}
+<br>
+<br>
+<br>
+<h2 style="text-align: center;"> The Cart Empty <h2>
+	<br>
+	<hr>
+	<br>
+<br>
+{% endif %}
+
+{% endblock %}

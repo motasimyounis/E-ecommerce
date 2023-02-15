@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h2>{{ user.username }}'s Profile</h2>
+
+<div class="container" style="width: 90%; margin: auto;">
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button type="submit">Save</button>
+</form>
+</div>
+<p>Bio: {{ profile.bio }}</p>
+<p>Location: {{ profile.location }}</p>
+<p>Birthdate: {{ profile.birth_date }}</p>
+<img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+
+
+
+
+
+
+
+
+
+
+{% endblock  %}

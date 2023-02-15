@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+
+<div class="container" style="width: 90%; margin: auto;">
+    <div class="card center spacer">
+        <h1 class="title text-center" style="text-align: center;">Register With Us</h1>
+        {% comment %} <div class="social-login">
+            <button class="social-btn">
+                <img class="icon" src="icons/gmail.svg" alt="gmail icon">
+                Gmail
+            </button>
+            <button class="social-btn">
+                <img class="icon" src="icons/facebook.svg" alt="gmail icon">
+                Facebook
+            </button>
+        </div> {% endcomment %}
+        {% if form.errors %}
+        <div class="alert alert-danger">
+          {% for field in form %}
+            {% for error in field.errors %}
+              {{ error }}
+              <br>
+            {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+            {{ error }}
+            <br>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <form method="POST" class="login-form spacer" id="signup-form" style="position: relative;padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        text-indent: 15%;
+        margin-left:350px">
+            {% csrf_token %}
+            <div class="input-group" style = "position: relative;"> 
+                {{form.username}} 
+                
+            </div> 
+            <br>
+            <div class="input-group"> 
+                {{form.email}} 
+                
+            </div> 
+            <br>
+           
+           
+            <div class="input-group"> 
+                {{form.password1}} 
+                
+            </div> 
+            <br>
+            <div class="input-group"> 
+                {{form.password2}} 
+               
+            </div> 
+             <br>
+              
+             <div class="form-group">
+                <button href="" class="btn btn-outline-info" type="submit">
+                  Sign up
+                </button>
+              </div>
+        </form>
+
+
+
+    </div>
+
+
+</div>
+<br>
+<div class="redirect" style= " margin-left:420px">
+    Already have an account ?&nbsp;<a href="{% url 'login' %}" class="link">Login</a>
+    <br>
+
+</div>
+<br><br><br>
+
+
+{% endblock %}
