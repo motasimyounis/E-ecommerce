@@ -28,7 +28,7 @@ The site displays products. Users can register their own account, log in and sho
 ![shop](https://user-images.githubusercontent.com/106841046/229612652-9f6df56f-59ef-4fb8-be57-6514b3f40bf9.PNG)
 
 
-`Cart`
+`Cart Page`
 
 ![cart](https://user-images.githubusercontent.com/106841046/229612810-b50789b7-fc5b-4987-a64b-79564a6508dc.PNG)
 
