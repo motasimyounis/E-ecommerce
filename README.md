@@ -1,6 +1,6 @@
 # E-ecommerce
 
-Ecommerce website built with Django.
+Ecommerce Website built with Django.
 
 <h2>Project Summary</h2>
 The site displays products. Users can register their own account, log in and shop on the site, manage their own account, add and remove products to/from their shopping cart while also determining the quantity of each item. They can then enter their address and choose Stripe to handle the payment processing.
